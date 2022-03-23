@@ -22,9 +22,11 @@ set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform
 # Other Env Settings
 ################################################################################
 
-set ADFS_USERNAME $NTUSER
-set ADFS_AWS_PROFILE comcast
-set AWS_PROFILE comcast
+set -x ADFS_USERNAME $NTUSER
+set -x ADFS_AWS_PROFILE comcast
+set -x AWS_PROFILE comcast
+
+set -gx EDITOR nvim
 
 set -x GOPATH $HOME/Develop/go
 set -x GOPRIVATE github.comcast.com,code.comcast.com

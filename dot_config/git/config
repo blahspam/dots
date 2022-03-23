@@ -5,6 +5,8 @@
     c = commit
     cb = !git checkout $(git branch | fzf)
     co = checkout
+    lg = log --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%an %cr)%C(reset)'
+    prp = pull --rebase --prune
     scrub = gc --aggressive --prune=now
     st = status -sb
 
