@@ -1,0 +1,72 @@
+################################################################################
+# XDG Support
+################################################################################
+
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_RUNTIME_DIR $HOME/tmp
+
+set -x AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+set -x AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
+
+set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
+set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+
+set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/keys.txt
+
+set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform
+
+################################################################################
+# Other Env Settings
+################################################################################
+
+set ADFS_USERNAME $NTUSER
+set ADFS_AWS_PROFILE comcast
+set AWS_PROFILE comcast
+
+set -x GOPATH $HOME/Develop/go
+set -x GOPRIVATE github.comcast.com,code.comcast.com
+
+set -x NTUSER jbaile223
+
+set -x YGG_ROOT $HOME/Develop/yggdrasil/go
+set -x YGG_PRIVATE $HOME/Develop/yggdrasil/linear-engineering-private
+
+set -x PATH \
+    (brew --prefix coreutils)/libexec/gnubin \
+    (brew --prefix make)/libexec/gnubin \
+    $GOPATH/bin \
+    /Library/TeX/texbin \
+    /usr/local/bin \
+    /usr/local/sbin \
+    /usr/bin \
+    /usr/sbin \
+    /bin \
+    /sbin
+
+set -x CDPATH . $YGG_ROOT
+
+################################################################################
+# Private Tokens
+################################################################################
+
+set -x CHARTMUSEUM_TOKEN {{ (onepasswordDetailsFields "Chart Museum Token").credential.value }}
+set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
+set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
+
+################################################################################
+# Interactive Niceties
+################################################################################
+
+if status --is-interactive
+    set BASE16_SHELL $HOME/.config/base16-shell/
+    source $BASE16_SHELL/profile_helper.fish
+
+    direnv hook fish | source
+end
+
+
+
+

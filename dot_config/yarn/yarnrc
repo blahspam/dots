@@ -1,0 +1,2 @@
+--cache-folder ${XDG_CACHE_HOME}/yarn
+--global-folder ${XDXDG_DATA_HOME}/yarn

@@ -1,0 +1,6 @@
+cache=${XDG_CACHE_HOME}/npm
+loglevel="warn"
+prefix=${XDG_DATA_HOME}/npm
+progress=false
+tmp=${XDG_RUNTIME_DIR}/npm
+# init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js

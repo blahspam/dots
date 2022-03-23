@@ -1,0 +1,20 @@
+scriptencoding utf-8
+
+set autochdir
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set browsedir=current
+set colorcolumn=80
+set copyindent
+set fileformat=unix
+set noshowmode                  
+set nowrap                      
+set number 
+set nojoinspaces
+set shell=/usr/local/bin/zsh
+set shiftround  
+set shiftwidth=2
+set showmatch
+set tabstop=2
+set textwidth=120
