@@ -1,0 +1,65 @@
+#! /usr/bin/env zsh
+
+# ignore run commands in /etc
+setopt no_global_rcs
+
+# XDG directories
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_RUNTIME_DIR="${HOME}/tmp"
+
+# aws
+export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME}/aws/credentials"
+export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
+
+# docker
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+
+# npm
+export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/config
+export NPM_CONFIG_DEVDIR=${XDG_CACHE_HOME}/npm
+
+# postgres
+export PSQLRC="${XDG_CONFIG_HOME}/pg/psqlrc"
+export PGPASSFILE="${XDG_CONFIG_HOME}/pg/pgpass"
+# export PGSERVICEFILE="${XDG_CONFIG_HOME}/pg/pg_service.conf"
+export PSQL_HISTORY="${XDG_DATA_HOME}/pg/history"
+
+# terraform
+export TF_CLI_CONFIG_FILE=${XDG_CONFIG_HOME}/terraform
+
+# yarn
+export YARN_CACHE_FOLDER=${XDG_CACHE_HOME}/yarn
+
+# gopath
+export GOPATH="${HOME}/Develop/go"
+
+# path
+typeset -U path
+path=${HOME}/bin
+for f in \
+  /usr/local/opt/coreutils/libexec/gnubin \
+  /usr/local/opt/gnu-tar/libexec/gnubin \
+  /usr/local/opt/make/libexec/gnubin \
+  /usr/local/opt/go/libexec/bin \
+  ${GOPATH}/bin \
+  /Library/TeX/texbin \
+  /usr/local/bin \
+  /usr/local/sbin \
+  /usr/bin \
+  /usr/sbin \
+  /bin \
+  /sbin 
+do
+  [[ -d ${f} ]] && path+=(${f})
+done
+
+################################################################################
+# Private Tokens
+################################################################################
+
+export CHARTMUSEUM_TOKEN="{{ (onepasswordDetailsFields "Chart Museum Token").credential.value }}"
+export LINEN_RDEI_TOKEN="{{ (onepasswordDetailsFields "RDEI Token").credential.value }}"
+export RDEI_TOKEN="{{ (onepasswordDetailsFields "RDEI Token").credential.value }}"

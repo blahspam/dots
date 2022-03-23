@@ -1,0 +1,20 @@
+#! /usr/bin/env zsh
+
+bindkey -e
+
+# additional vars
+export EDITOR=nvim
+
+# antibody plugins
+if [[ ! -f ${XDG_CONFIG_HOME}/zsh/plugins.zsh ]] || [[ ! -d ${XDG_CACHE_HOME}/antibody ]]; then
+  antibody bundle <${XDG_CONFIG_HOME}/zsh/plugins >${XDG_CONFIG_HOME}/zsh/plugins.zsh
+fi
+source ${XDG_CONFIG_HOME}/zsh/plugins.zsh
+
+# everything else
+typeset -U config_files=(${XDG_CONFIG_HOME}/zsh/*.zsh)
+for file in ${config_files}; do
+  source $file
+done
+
+eval "$(direnv hook zsh)"
