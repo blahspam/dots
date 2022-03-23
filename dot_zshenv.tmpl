@@ -17,9 +17,16 @@ export AWS_CONFIG_FILE="${XDG_CONFIG_HOME}/aws/config"
 # docker
 export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 
+# homebrew-bundle
+export HOMEBREW_BUNDLE_FILE="${XDG_CONFIG_HOME}/homebrew-bundle/Brewfile"
+
+# minikube
+export MINIKUBE_HOME="${XDG_CACHE_HOME}/minikube"
+export MINIKUBE_IN_STYLE=true
+
 # npm
-export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/config
-export NPM_CONFIG_DEVDIR=${XDG_CACHE_HOME}/npm
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
+export NPM_CONFIG_DEVDIR="${XDG_CACHE_HOME}/npm"
 
 # postgres
 export PSQLRC="${XDG_CONFIG_HOME}/pg/psqlrc"

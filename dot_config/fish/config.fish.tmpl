@@ -6,12 +6,19 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_STATE_HOME $HOME/.local/state
-set -x XDG_RUNTIME_DIR $HOME/tmp
+set -x XDG_RUNTIME_DIR $HOME/.run
 
 set -x AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
 set -x AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
 
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
+set -x HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
+
+set -x LESSHISTFILE $XDG_DATA_HOME/less/history
+
+set -x MINIKUBE_HOME $XDG_CACHE_HOME/minikube
+set -x MINIKUBE_IN_STYLE true
 
 set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
