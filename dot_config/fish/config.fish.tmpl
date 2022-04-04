@@ -76,6 +76,9 @@ if status --is-interactive
 
     direnv hook fish | source
     op completion fish | source
+
+    bind --user \cf forward-bigword
+    bind --user \cb backward-bigword
 end
 
 
