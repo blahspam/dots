@@ -56,8 +56,6 @@ set -x PATH \
     /bin \
     /sbin
 
-set -x CDPATH . $YGG_ROOT
-
 ################################################################################
 # Private Tokens
 ################################################################################
@@ -74,11 +72,14 @@ if status --is-interactive
     set BASE16_SHELL $HOME/.config/base16-shell/
     source $BASE16_SHELL/profile_helper.fish
 
-    direnv hook fish | source
-    op completion fish | source
+    set -x CDPATH . ~/Develop
 
     bind --user \cf forward-bigword
     bind --user \cb backward-bigword
+
+    op completion fish | source
+
+    direnv hook fish | source
 end
 
 

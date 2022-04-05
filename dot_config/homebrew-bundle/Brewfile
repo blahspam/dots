@@ -46,6 +46,7 @@ brew 'pandoc'
 brew 'postgresql', restart_service: :changed
 brew 'prettier'
 brew 'python3'
+brew 'qrencode'
 brew 'qmk'
 brew 'ruby'
 brew 'sops'
