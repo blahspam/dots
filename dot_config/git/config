@@ -20,10 +20,25 @@
     abbrev = 12
     autocrlf = input
     ignorecase = false
+    pager = delta
     whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+
+[delta]
+    line-numbers = true
+    navigate = true  
+    side-by-side = true
+
+[diff]
+    colorMoved = default
 
 [init]
 	defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
 
 [pull]
     rebase = true
@@ -44,3 +59,7 @@
 
 [url "ssh://git@github.comcast.com/"]
     insteadOf = https://github.comcast.com/
+
+
+
+
