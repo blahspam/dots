@@ -80,6 +80,7 @@ cask 'google-chrome'
 cask 'istat-menus'
 cask 'iterm2'
 cask 'jetbrains-toolbox'
+cask 'logi-options-plus'
 cask 'microsoft-office'
 cask 'monitorcontrol'
 cask 'omnigraffle'
@@ -90,14 +91,17 @@ cask 'quicken'
 cask 'slack'
 cask 'the-unarchiver'
 cask 'transmit'
+cask 'vagrant'
 cask 'virtualbox'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'xscope'
 
-# mas 'Keynote', id: 409183694
-# mas 'Numbers', id: 409203825
-# mas 'Pages', id: 409201541
+mas '1Password for Safari', id: 1569813296
+mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Things', id: 904280696
+mas 'Wipr', id: 1320666476
 mas 'Xcode', id: 497799835
