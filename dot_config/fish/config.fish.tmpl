@@ -64,6 +64,8 @@ set -x CHARTMUSEUM_TOKEN {{ (onepasswordDetailsFields "Chart Museum Token").cred
 # set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
+set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
+set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 
 ################################################################################
 # Interactive Niceties
