@@ -81,13 +81,9 @@ if status --is-interactive
     bind --user \cf forward-bigword
     bind --user \cb backward-bigword
 
-    op completion fish | source
-
+    # completions, hooks, inits, etc
     direnv hook fish | source
-
     flux completion fish | source
+    mcfly init fish | source
+    op completion fish | source
 end
-
-
-
-
