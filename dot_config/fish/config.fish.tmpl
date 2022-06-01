@@ -61,10 +61,10 @@ set -x PATH \
 ################################################################################
 
 set -x CHARTMUSEUM_TOKEN {{ (onepasswordDetailsFields "Chart Museum Token").credential.value }}
-set -x DO_TOKEN {{ (onepasswordDetailsFields "DigitalOcean API").credential.value }}
+set -x DO_TOKEN {{ (onepasswordItemFields "DigitalOcean").token.value }}
 # set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
-set -x GITHUB_TOKEN {{ (onepasswordDetailsFields "Github Token").credential.value }}
+set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
 set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
 set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
@@ -81,9 +81,11 @@ if status --is-interactive
     bind --user \cf forward-bigword
     bind --user \cb backward-bigword
 
-    # completions, hooks, inits, etc
-    direnv hook fish | source
     flux completion fish | source
-    mcfly init fish | source
+    kubectl completion fish | source
     op completion fish | source
+
+    direnv hook fish | source
+
+    mcfly init fish | source
 end
