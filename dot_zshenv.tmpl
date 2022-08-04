@@ -58,8 +58,7 @@ for f in \
   /usr/bin \
   /usr/sbin \
   /bin \
-  /sbin 
-do
+  /sbin; do
   [[ -d ${f} ]] && path+=(${f})
 done
 
