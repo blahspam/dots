@@ -61,6 +61,7 @@ set -x DO_TOKEN {{ (onepasswordItemFields "DigitalOcean").token.value }}
 # set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
 set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
+set -x JIRA_API_TOKEN {{ (onepasswordDetailsFields "CCP JIRA").credential.value }}
 set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
 set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
