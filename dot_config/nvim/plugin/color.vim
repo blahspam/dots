@@ -1,9 +1,9 @@
 syntax on
 set background=dark
-let g:base16ColorSpace = 256
+let base16colorspace=256
+colorscheme base16-default-dark
 
-if filereadable("${HOME}/.vimrc_background")
-  source "${HOME}/.vimrc_background"
-endif
-
+" set background=dark
+" let g:base16ColorSpace = 256
+" colorscheme base16-default-dark
 hi ColorColumn ctermbg=Grey

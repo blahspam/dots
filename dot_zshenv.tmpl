@@ -25,7 +25,7 @@ export MINIKUBE_HOME="${XDG_CACHE_HOME}/minikube"
 export MINIKUBE_IN_STYLE=true
 
 # npm
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/config"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 export NPM_CONFIG_DEVDIR="${XDG_CACHE_HOME}/npm"
 
 # postgres
@@ -47,18 +47,19 @@ export GOPATH="${HOME}/Develop/go"
 typeset -U path
 path=${HOME}/bin
 for f in \
-  /usr/local/opt/coreutils/libexec/gnubin \
-  /usr/local/opt/gnu-tar/libexec/gnubin \
-  /usr/local/opt/make/libexec/gnubin \
-  /usr/local/opt/go/libexec/bin \
-  ${GOPATH}/bin \
-  /Library/TeX/texbin \
+  (brew --prefix coreutils)/libexec/gnubin \
+  (brew --prefix make)/libexec/gnubin \
+  (brew --prefix make) \
+  $GOPATH/bin \
+  $XDG_DATA_HOME/npm/bin \
+  /Library/TeX/Distributions/Programs/texbin
   /usr/local/bin \
   /usr/local/sbin \
   /usr/bin \
   /usr/sbin \
   /bin \
-  /sbin; do
+  /sbin
+ do
   [[ -d ${f} ]] && path+=(${f})
 done
 
