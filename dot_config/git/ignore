@@ -1,8 +1,7 @@
 .DS_Store
-.history  
+.history
 .idea
 
-*.code-workspace
 *.iml
 *.pyc
 *.swp

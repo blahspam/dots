@@ -17,12 +17,15 @@ set -x HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
 
 set -x LESSHISTFILE $XDG_DATA_HOME/less/history
 
-set -x MINIKUBE_HOME $XDG_CACHE_HOME/minikube
-set -x MINIKUBE_IN_STYLE true
+# set -x MINIKUBE_HOME $XDG_CACHE_HOME/minikube
+# set -x MINIKUBE_IN_STYLE true
 
 set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
-set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age-keys.txt
+set -x PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
+set -x PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
+set -x PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
+set -x PSQL_HISTORY $XDG_DATA_HOME/psql/history
 
 set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform
 
@@ -30,7 +33,7 @@ set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform
 # Other Env Settings
 ################################################################################
 
-set -x ADFS_USERNAME $NTUSER
+set -x ADFS_USERNAME $(whoami)
 set -x ADFS_AWS_PROFILE comcast
 set -x AWS_PROFILE comcast
 
@@ -39,7 +42,9 @@ set -gx EDITOR nvim
 set -x GOPATH $HOME/Develop/go
 set -x GOPRIVATE github.comcast.com,code.comcast.com
 
-set -x NTUSER jbaile223
+set -x NTUSER $(whoami)
+
+set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
 
 set -x YGG_ROOT $HOME/Develop/yggdrasil/go
 set -x YGG_PRIVATE $HOME/Develop/yggdrasil/linear-engineering-private
@@ -65,6 +70,31 @@ set -x JIRA_API_TOKEN {{ (onepasswordDetailsFields "CCP JIRA").credential.value 
 set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
 set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
+
+################################################################################
+# Basic Aliases
+################################################################################
+
+alias .. "cd .."
+alias agx "ansible-galaxy"
+alias apb "ansible-playbook"
+alias cat "bat -pp --theme=base16"
+alias cl "colima"
+alias clst "colima start -a x86_64 -c 4 -m 8"
+alias cm "chezmoi"
+alias dk "docker"
+alias dkc "docker-compose"
+alias golint "golangci-lint run -c $XDG_CONFIG_HOME/golangci-lint/config.yaml"
+alias kb "kubectl"
+alias kbc "kubectx"
+alias ll "ls -lh"
+alias ls "ls -A --color=auto"
+alias svn "svn --config-dir \"$XDG_CONFIG_HOME/subversion\""
+alias tf "terraform"
+alias tg "terragrunt"
+alias vim "nvim"
+alias yarn "yarn --use-yarnrc \"$XDG_CONFIG_HOME/yarn/yarnrc\""
+
 
 ################################################################################
 # Interactive Niceties
