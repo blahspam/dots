@@ -1,0 +1,10 @@
+[user]
+  email = jeff@blahspam.com
+  name = Jeff Bailey
+  signingkey = ~/.ssh/id_rsa.pub
+[gpg]
+  format = ssh
+[github]
+  user = blahspam
+[core]
+  sshCommand = ssh -i ~/.ssh/id_rsa

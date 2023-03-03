@@ -1,65 +1,73 @@
 [alias]
-    aa = add --all
-    amend = commit -a --amend
-    br = branch
-    c = commit
-    cb = !git checkout $(git branch | fzf)
-    co = checkout
-    lg = log --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%an %cr)%C(reset)'
-    prp = pull --rebase --prune
-    scrub = gc --aggressive --prune=now
-    st = status -sb
+aa = add --all
+amend = commit -a --amend
+br = branch
+c = commit
+cb = !git checkout $(git branch | fzf)
+co = checkout
+lg = log --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%an %cr)%C(reset)'
+prp = pull --rebase --prune
+scrub = gc --aggressive --prune=now
+st = status -sb
 
 [color]
-    branch = auto
-    diff = auto
-    grep = auto
-    status = auto
+branch = auto
+diff = auto
+grep = auto
+status = auto
 
 [core]
-    abbrev = 12
-    autocrlf = input
-    ignorecase = false
-    pager = delta
-    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+abbrev = 12
+autocrlf = input
+ignorecase = false
+pager = delta
+whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 
 [delta]
-    line-numbers = true
-    navigate = true  
-    side-by-side = true
+line-numbers = true
+navigate = true
+side-by-side = true
 
 [diff]
-    colorMoved = default
+colorMoved = default
 
 [init]
-	defaultBranch = main
+defaultBranch = main
 
 [interactive]
-    diffFilter = delta --color-only
+diffFilter = delta --color-only
 
 [merge]
-    conflictstyle = diff3
+conflictstyle = diff3
 
 [pull]
-    rebase = true
-    tags = true
+rebase = true
+tags = true
 
 [push]
-    default = nothing
+default = nothing
 
 [fetch]
-    prune = true
-    pruneTags = true
+prune = true
+pruneTags = true
 
 [rebase]
-    stat = true
+stat = true
 
 [user]
-    useConfigOnly = true
+useConfigOnly = true
 
-[url "ssh://git@github.comcast.com/"]
-    insteadOf = https://github.comcast.com/
+[includeIf "gitdir:~/Develop/blahspam/"]
+path = ~/.config/git/github_config
 
+[includeIf "gitdir:~/Develop/comcast/"]
+path = ~/.config/git/github_config
 
+[includeIf "gitdir:~/Develop/comcast-viper-altcon/"]
+path = ~/.config/git/ghec_config
 
+[includeIf "gitdir:~/Develop/jbaile223_comcast/"]
+path = ~/.config/git/ghec_config
 
+[includeIf "gitdir:~/Develop/yggdrasil/"]
+path = ~/config/git/ghe_config

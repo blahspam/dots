@@ -27,7 +27,7 @@ set -x PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
 set -x PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
 set -x PSQL_HISTORY $XDG_DATA_HOME/psql/history
 
-set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform
+set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
 
 ################################################################################
 # Other Env Settings
@@ -70,6 +70,8 @@ set -x JIRA_API_TOKEN {{ (onepasswordDetailsFields "CCP JIRA").credential.value 
 set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
 set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
+set -x ARTIFACTORY_TOKEN {{ (onepasswordDetailsFields "Artifactory Token").credential.value }}
+set -x TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
 
 ################################################################################
 # Basic Aliases
