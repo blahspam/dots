@@ -54,6 +54,12 @@ pruneTags = true
 [rebase]
 stat = true
 
+[url "ssh://git@github.com/"]
+insteadOf = https://github.com/
+
+[url "ssh://git@github.comcast.com/"]
+insteadOf = https://github.comcast.com/
+
 [user]
 useConfigOnly = true
 

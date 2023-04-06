@@ -1,12 +1,10 @@
-[user]
-  email = jeff_bailey@comcast.com
-  name = Jeff Bailey
-  signingkey = ~/.ssh/github-id_rsa.pub
-[gpg]
-  format = ssh
-[github]
-  user = jbailey223
 [core]
-  sshCommand = ssh -i ~/.ssh/id_rsa
-[url "ssh://git@github.comcast.com/"]
-  insteadOf = https://github.comcast.com/
+sshCommand = ssh -i ~/.ssh/id_rsa
+
+[github]
+user = jbailey223
+
+[user]
+email = jeff_bailey@comcast.com
+name = Jeff Bailey
+signingkey = ~/.ssh/id_rsa.pub

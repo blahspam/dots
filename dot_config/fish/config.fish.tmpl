@@ -8,8 +8,8 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx XDG_RUNTIME_DIR $HOME/.run
 
-set -x AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
-set -x AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
+# set -x AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+# set -x AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
 
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
@@ -35,7 +35,6 @@ set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
 
 set -x ADFS_USERNAME $(whoami)
 set -x ADFS_AWS_PROFILE comcast
-set -x AWS_PROFILE comcast
 
 set -gx EDITOR nvim
 

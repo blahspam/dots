@@ -1,10 +1,16 @@
-[user]
-  email = jeff_bailey@comcast.com
-  name = Jeff Bailey
-  signingkey = ~/.ssh/github-jbaile223.pub
-[gpg]
-  format = ssh
-[github]
-  user = jbailey223_comcast
+[commit]
+gpgsign = true
+
 [core]
-  sshCommand = ssh -i ~/.ssh/github-jbaile223
+sshCommand = ssh -i ~/.ssh/github-jbaile223
+
+[github]
+user = jbailey223_comcast
+
+[gpg]
+format = ssh
+
+[user]
+email = Jeff_Bailey@cable.comcast.com
+name = Jeff Bailey
+signingkey = ~/.ssh/github-jbaile223.pub
