@@ -17,6 +17,10 @@ repos:
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 35.96.1
+    hooks:
+      - id: renovate-config-validator
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v2.1.1
     hooks:

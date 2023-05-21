@@ -54,7 +54,7 @@ set -x YGG_PRIVATE $HOME/Develop/yggdrasil/linear-engineering-private
 
 fish_add_path -Ppm /opt/homebrew/bin /usr/local/bin
 fish_add_path -Ppm (brew --prefix coreutils)/libexec/gnubin (brew --prefix make)/libexec/gnubin
-fish_add_path -aP $GOPATH/bin $XDG_DATA_HOME/npm/bin /Library/TeX/Distributions/Programs/texbin
+fish_add_path -aP $GOPATH/bin $XDG_DATA_HOME/npm/bin /usr/local/texlive/2023basic/bin/universal-darwin
 
 ################################################################################
 # Private Tokens
@@ -62,10 +62,11 @@ fish_add_path -aP $GOPATH/bin $XDG_DATA_HOME/npm/bin /Library/TeX/Distributions/
 
 set -x CHARTMUSEUM_TOKEN {{ (onepasswordDetailsFields "Chart Museum Token").credential.value }}
 set -x DO_TOKEN {{ (onepasswordItemFields "DigitalOcean").token.value }}
-# set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
+set -x GHEC_TOKEN {{ (onepasswordDetailsFields "GHEC Token").credential.value }}
 set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
 set -x JIRA_API_TOKEN {{ (onepasswordDetailsFields "CCP JIRA").credential.value }}
+# set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
 set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
 set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
@@ -81,7 +82,6 @@ alias agx "ansible-galaxy"
 alias apb "ansible-playbook"
 alias cat "bat -pp --theme=base16"
 alias cl "colima"
-alias clst "colima start -a x86_64 -c 4 -m 8"
 alias cm "chezmoi"
 alias dk "docker"
 alias dkc "docker-compose"
@@ -90,11 +90,11 @@ alias kb "kubectl"
 alias kbc "kubectx"
 alias ll "ls -lh"
 alias ls "ls -A --color=auto"
-alias svn "svn --config-dir \"$XDG_CONFIG_HOME/subversion\""
+alias svn "svn --config-dir "$XDG_CONFIG_HOME/subversion"
 alias tf "terraform"
 alias tg "terragrunt"
 alias vim "nvim"
-alias yarn "yarn --use-yarnrc \"$XDG_CONFIG_HOME/yarn/yarnrc\""
+alias yarn "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/yarnrc"
 
 
 ################################################################################
