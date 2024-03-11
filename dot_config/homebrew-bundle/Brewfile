@@ -1,7 +1,4 @@
-tap 'ankitpokhrel/jira-cli'
 tap 'fluxcd/tap'
-tap 'go-task/tap'
-tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/services'
 tap 'jakehilborn/jakehilborn'
@@ -9,7 +6,6 @@ tap 'osx-cross/arm'
 tap 'osx-cross/avr'
 tap 'qmk/qmk'
 
-brew 'ankitpokhrel/jira-cli/jira-cli'
 brew 'ack'
 brew 'age'
 brew 'ansible'
@@ -51,31 +47,29 @@ brew 'make'
 brew 'mas'
 brew 'mcfly'
 brew 'mercurial'
-brew 'minikube'
-brew 'mkcert'
+brew uninstallbrew 'nats-server'
 brew 'neovim'
 brew 'node'
 brew 'npm'
 brew 'openssl'
-brew 'pandoc'
-brew 'postgresql@14', restart_service: :changed
+brew 'postgresql@15', restart_service: :changed
 brew 'pre-commit'
 brew 'prettier'
 brew 'python3'
 brew 'qemu'
 brew 'qrencode'
-brew 'qmk/qmk/qmk'
 brew 'ruby'
 brew 'sd'
 brew 'sops'
 brew 'stern'
+brew 'sqlfluff'
 brew 'sqlite'
 brew 'svn'
 brew 'terraform'
 brew 'terragrunt'
 brew 'tflint'
 brew 'tldr'
-brew 'vault'
+brew 'hashicorp/tap/vault'
 brew 'wireguard-tools'
 brew 'yarn'
 brew 'yq'
@@ -88,7 +82,7 @@ cask 'aerial'
 cask 'alfred'
 cask 'backblaze'
 cask 'balenaetcher'
-cask 'basictex'
+cask 'firefox'
 cask 'font-roboto-mono'
 cask 'font-roboto-mono-for-powerline'
 cask 'fly'
@@ -108,19 +102,17 @@ cask 'qmk-toolbox'
 cask 'quicken'
 cask 'slack'
 cask 'the-unarchiver'
-cask 'vagrant'
 cask 'visual-studio-code'
 cask 'xscope'
-
 
 mas '1Password for Safari', id: 1569813296
 mas 'Hush Nag Blocker', id: 1544743900
 mas 'Kagi search for Safari', id: 1622835804
 mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
+# mas 'Numbers', id: 409203825
+# mas 'Pages', id: 409201541
 mas 'Pixelmator Pro', id: 1289583905
-mas 'Testflight', id: 899247664
+# mas 'Testflight', id: 899247664
 mas 'Things', id: 904280696
 mas 'Wipr', id: 1320666476
 # mas 'Xcode', id: 497799835

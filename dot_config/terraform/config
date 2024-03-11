@@ -1,11 +1,9 @@
 provider_installation {
-  direct {
-    exclude = ["registry.terraform.io/*/*"]
-  }
-  direct {
-    exclude = ["hashicorp/*/*"]
-  }
   network_mirror {
     url = "https://artifactory.comcast.com/artifactory/api/terraform/viper-altcon-providers/providers/"
+    include = ["artifactory.comcast.com/altcon/*"]
+  }
+  direct {
+    exclude = ["artifactory.comcast.com/*/*"]
   }
 }

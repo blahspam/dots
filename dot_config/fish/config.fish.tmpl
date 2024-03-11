@@ -39,20 +39,17 @@ set -x ADFS_AWS_PROFILE comcast
 set -gx EDITOR nvim
 
 set -x GOPATH $HOME/Develop/go
-set -x GOPRIVATE github.comcast.com,code.comcast.com
+set -x GOBIN $GOPATH/bin
 
 set -x NTUSER $(whoami)
 
 set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
 
-set -x YGG_ROOT $HOME/Develop/yggdrasil/go
-set -x YGG_PRIVATE $HOME/Develop/yggdrasil/linear-engineering-private
-
 ################################################################################
 # Path
 ################################################################################
 
-fish_add_path -Ppm /opt/homebrew/bin /usr/local/bin
+fish_add_path -Ppm /opt/homebrew/sbin /opt/homebrew/bin /usr/local/bin
 fish_add_path -Ppm (brew --prefix coreutils)/libexec/gnubin (brew --prefix make)/libexec/gnubin
 fish_add_path -aP $GOPATH/bin $XDG_DATA_HOME/npm/bin /usr/local/texlive/2023basic/bin/universal-darwin
 
@@ -85,17 +82,15 @@ alias cl "colima"
 alias cm "chezmoi"
 alias dk "docker"
 alias dkc "docker-compose"
-alias golint "golangci-lint run -c $XDG_CONFIG_HOME/golangci-lint/config.yaml"
 alias kb "kubectl"
 alias kbc "kubectx"
 alias ll "ls -lh"
 alias ls "ls -A --color=auto"
-alias svn "svn --config-dir "$XDG_CONFIG_HOME/subversion"
+alias svn "svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias tf "terraform"
 alias tg "terragrunt"
 alias vim "nvim"
 alias yarn "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/yarnrc"
-
 
 ################################################################################
 # Interactive Niceties
