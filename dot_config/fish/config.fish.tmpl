@@ -1,5 +1,5 @@
 ################################################################################
-# XDG Support
+# XDG Directories
 ################################################################################
 
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -8,42 +8,35 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx XDG_RUNTIME_DIR $HOME/.run
 
-# set -x AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
-# set -x AWS_CONFIG_FILE $XDG_CONFIG_HOME/aws/config
-
-set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
-
-set -x HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
-
-set -x LESSHISTFILE $XDG_DATA_HOME/less/history
-
-# set -x MINIKUBE_HOME $XDG_CACHE_HOME/minikube
-# set -x MINIKUBE_IN_STYLE true
-
-set -x NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
-
-set -x PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
-set -x PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
-set -x PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
-set -x PSQL_HISTORY $XDG_DATA_HOME/psql/history
-
-set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
-
 ################################################################################
-# Other Env Settings
+# Environment Variables
 ################################################################################
 
 set -x ADFS_USERNAME $(whoami)
 set -x ADFS_AWS_PROFILE comcast
-
-set -gx EDITOR nvim
-
+set -x ARTIFACTORY_TOKEN {{ (onepasswordDetailsFields "Artifactory Token").credential.value }}
+set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+set -x EDITOR nvim
+set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
+set -x GHEC_TOKEN {{ (onepasswordDetailsFields "GHEC Token").credential.value }}
+set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
 set -x GOPATH $HOME/Develop/go
 set -x GOBIN $GOPATH/bin
-
+set -x HOMEBREW_HOME /opt/homebrew
+set -x HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
+set -x JAVA_HOME $HOMEBREW_HOME/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+set -x LESSHISTFILE $XDG_DATA_HOME/less/history
 set -x NTUSER $(whoami)
-
+set -x PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
+set -x PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
+set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
+set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
+set -x PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
+set -x PSQL_HISTORY $XDG_DATA_HOME/psql/history
+set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
 set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
+set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
+set -x TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
 
 ################################################################################
 # Path
@@ -51,27 +44,10 @@ set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
 
 fish_add_path -Ppm /opt/homebrew/sbin /opt/homebrew/bin /usr/local/bin
 fish_add_path -Ppm (brew --prefix coreutils)/libexec/gnubin (brew --prefix make)/libexec/gnubin
-fish_add_path -aP $GOPATH/bin $XDG_DATA_HOME/npm/bin /usr/local/texlive/2023basic/bin/universal-darwin
+fish_add_path -aP $GOBIN $XDG_DATA_HOME/npm/bin $JAVA_HOME/bin $HOME/.pub-cache/bin
 
 ################################################################################
-# Private Tokens
-################################################################################
-
-set -x CHARTMUSEUM_TOKEN {{ (onepasswordDetailsFields "Chart Museum Token").credential.value }}
-set -x DO_TOKEN {{ (onepasswordItemFields "DigitalOcean").token.value }}
-set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
-set -x GHEC_TOKEN {{ (onepasswordDetailsFields "GHEC Token").credential.value }}
-set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
-set -x JIRA_API_TOKEN {{ (onepasswordDetailsFields "CCP JIRA").credential.value }}
-# set -x LINEN_RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
-set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
-set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
-set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
-set -x ARTIFACTORY_TOKEN {{ (onepasswordDetailsFields "Artifactory Token").credential.value }}
-set -x TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
-
-################################################################################
-# Basic Aliases
+# Aliases
 ################################################################################
 
 alias .. "cd .."
@@ -86,19 +62,16 @@ alias kb "kubectl"
 alias kbc "kubectx"
 alias ll "ls -lh"
 alias ls "ls -A --color=auto"
-alias svn "svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias tf "terraform"
 alias tg "terragrunt"
 alias vim "nvim"
-alias yarn "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/yarnrc"
 
 ################################################################################
-# Interactive Niceties
+# Everything Else
 ################################################################################
 
+base16-solarflare
 if status --is-interactive
-    base16-solarflare
-
     set -x CDPATH . ~/Develop
 
     bind --user \cf forward-bigword
@@ -111,4 +84,6 @@ if status --is-interactive
     direnv hook fish | source
 
     mcfly init fish | source
+
+    rbenv init - fish | source
 end
