@@ -5,10 +5,13 @@ br = branch
 c = commit
 cb = !git checkout $(git branch | fzf)
 co = checkout
+com = checkout main
 lg = log --graph --pretty=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%an %cr)%C(reset)'
 prp = pull --rebase --prune
+rsh = reset --soft HEAD^
 scrub = gc --aggressive --prune=now
 st = status -sb
+tl = tag --list
 
 [color]
 branch = auto
@@ -68,6 +71,9 @@ path = ~/.config/git/github_config
 path = ~/.config/git/github_config
 
 [includeIf "gitdir:~/Develop/comcast-viper-altcon/"]
+path = ~/.config/git/ghec_config
+
+[includeIf "gitdir:~/Develop/comcast-viper-eas/"]
 path = ~/.config/git/ghec_config
 
 [includeIf "gitdir:~/Develop/jbaile223_comcast/"]

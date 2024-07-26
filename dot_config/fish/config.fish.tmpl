@@ -1,5 +1,7 @@
+set fish_greeting
+
 ################################################################################
-# XDG Directories
+# XDG
 ################################################################################
 
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -12,78 +14,60 @@ set -gx XDG_RUNTIME_DIR $HOME/.run
 # Environment Variables
 ################################################################################
 
-set -x ADFS_USERNAME $(whoami)
-set -x ADFS_AWS_PROFILE comcast
-set -x ARTIFACTORY_TOKEN {{ (onepasswordDetailsFields "Artifactory Token").credential.value }}
-set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
-set -x EDITOR nvim
-set -x GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
-set -x GHEC_TOKEN {{ (onepasswordDetailsFields "GHEC Token").credential.value }}
-set -x GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
-set -x GOPATH $HOME/Develop/go
-set -x GOBIN $GOPATH/bin
-set -x HOMEBREW_HOME /opt/homebrew
-set -x HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
-set -x JAVA_HOME $HOMEBREW_HOME/opt/openjdk/libexec/openjdk.jdk/Contents/Home
-set -x LESSHISTFILE $XDG_DATA_HOME/less/history
-set -x NTUSER $(whoami)
-set -x PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
-set -x PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
-set -x PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
-set -x PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
-set -x PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
-set -x PSQL_HISTORY $XDG_DATA_HOME/psql/history
-set -x RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
-set -x SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
-set -x TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
-set -x TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
+set -gx ADFS_USERNAME $(whoami)
+set -gx ADFS_AWS_PROFILE comcast
+set -gx ARTIFACTORY_TOKEN {{ (onepasswordDetailsFields "Artifactory Token").credential.value }}
+set -gx CDPATH . ~/Develop
+set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+set -gx EDITOR nvim
+set -gx GHE_TOKEN {{ (onepasswordDetailsFields "GHE Token").credential.value }}
+set -gx GHEC_TOKEN {{ (onepasswordDetailsFields "GHEC Token").credential.value }}
+set -gx GIT_EDITOR nvim
+set -gx GITHUB_TOKEN {{ (onepasswordItemFields "Github").token.value }}
+set -gx GOPATH $HOME/Develop/go
+set -gx GOBIN $GOPATH/bin
+set -gx HOMEBREW_HOME /opt/homebrew
+set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
+set -gx JAVA_HOME $HOMEBREW_HOME/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+set -gx LESSHISTFILE $XDG_DATA_HOME/less/history
+set -gx NTUSER $(whoami)
+set -gx PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
+set -gx PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
+set -gx PM_USER {{ (onepasswordDetailsFields "Proxmox").username.value }}
+set -gx PM_PASS {{ (onepasswordDetailsFields "Proxmox").password.value }}
+set -gx PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
+set -gx PSQL_HISTORY $XDG_DATA_HOME/psql/history
+set -gx RDEI_TOKEN {{ (onepasswordDetailsFields "RDEI Token").credential.value }}
+set -gx SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
+set -gx TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
+set -gx TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
 
 ################################################################################
 # Path
 ################################################################################
 
-fish_add_path -Ppm /opt/homebrew/sbin /opt/homebrew/bin /usr/local/bin
-fish_add_path -Ppm (brew --prefix coreutils)/libexec/gnubin (brew --prefix make)/libexec/gnubin
-fish_add_path -aP $GOBIN $XDG_DATA_HOME/npm/bin $JAVA_HOME/bin $HOME/.pub-cache/bin
-
-################################################################################
-# Aliases
-################################################################################
-
-alias .. "cd .."
-alias agx "ansible-galaxy"
-alias apb "ansible-playbook"
-alias cat "bat -pp --theme=base16"
-alias cl "colima"
-alias cm "chezmoi"
-alias dk "docker"
-alias dkc "docker-compose"
-alias kb "kubectl"
-alias kbc "kubectx"
-alias ll "ls -lh"
-alias ls "ls -A --color=auto"
-alias tf "terraform"
-alias tg "terragrunt"
-alias vim "nvim"
+fish_add_path -pP $HOMEBREW_HOME/bin
+fish_add_path -pP $HOMEBREW_HOME/opt/make/libexec/gnubin
+fish_add_path -pP $HOMEBREW_HOME/opt/coreutils/libexec/gnubin
+fish_add_path -aP $HOMEBREW_HOME/sbin
+fish_add_path -aP $GOBIN
+fish_add_path -aP $XDG_DATA_HOME/npm/bin
+fish_add_path -aP $JAVA_HOME/bin
+fish_add_path -aP $HOME/.pub-cache/bin
 
 ################################################################################
 # Everything Else
 ################################################################################
 
-base16-solarflare
 if status --is-interactive
-    set -x CDPATH . ~/Develop
+  base16-solarflare
 
-    bind --user \cf forward-bigword
-    bind --user \cb backward-bigword
+  source $XDG_CONFIG_HOME/fish/abbreviations.fish
 
-    flux completion fish | source
-    kubectl completion fish | source
-    op completion fish | source
-
-    direnv hook fish | source
-
-    mcfly init fish | source
-
-    rbenv init - fish | source
+  # completions
+  direnv hook fish | source
+  flux completion fish | source
+  kubectl completion fish | source
+  mcfly init fish | source
+  op completion fish | source
 end

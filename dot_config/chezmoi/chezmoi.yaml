@@ -1,3 +1,6 @@
 ---
+format: yaml
+progress: true
+sourceDir: /Users/jbaile223/Develop/blahspam/dots
 onepassword:
   prompt: false
