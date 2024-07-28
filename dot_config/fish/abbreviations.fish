@@ -13,12 +13,21 @@ abbr -a cdxd 'cd $XDG_DATA_HOME'
 abbr -a agx ansible-galaxy
 abbr -a apb ansible-playbook
 
+# Chezmoi
+abbr -a cm chezmoi
+abbr -a cma 'chezmoi apply'
+abbr -a cmu 'chezmoi update'
+
 # Docker
 abbr -a dk docker
 abbr -a dkc docker-compose
 abbr -a dkd 'docker-compose down'
 abbr -a dkp 'docker-compose pull'
 abbr -a dku 'docker-compose up'
+
+# Flutter
+abbr -a fl 'fvm flutter'
+abbr -a flr 'fvm flutter run'
 
 # Git
 abbr -a gc 'git commit'
@@ -40,5 +49,5 @@ abbr -a tfa 'terraform apply'
 abbr -a tfd 'terraform destroy'
 abbr -a tg terragrunt
 
-# Other things
-abbr -a cm chezmoi
+# Miscellaneous
+abbr -a src 'exec fish'

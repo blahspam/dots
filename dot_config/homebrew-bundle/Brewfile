@@ -15,6 +15,7 @@ brew 'awscli'
 brew 'bash'
 brew 'bat' # A cat(1) clone with wings.
 brew 'chezmoi'
+brew 'cocoapods'
 brew 'clang-format'
 brew 'colima'
 brew 'coreutils'
