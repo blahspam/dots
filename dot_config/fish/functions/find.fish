@@ -1,3 +1,3 @@
-function find --wraps fd -d "Find files"
+function find -d "Find files"
   fd $argv
-erd
+end

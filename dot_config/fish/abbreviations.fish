@@ -41,6 +41,9 @@ abbr -a wip "git commit -nam 'chore: wip'"
 
 # Kube
 abbr -a kb kubectl
+abbr -a kbp 'kubectl get pods'
+abbr -a kbdp 'kubectl describe pod'
+abbr -a kbs 'kubectl get svcs'
 abbr -a kbc kubectx
 
 # Terraform / Terragrunt

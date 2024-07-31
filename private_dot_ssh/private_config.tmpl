@@ -1,1 +1,14 @@
-{{- (onepasswordItemFields "SSH").config.value -}}
+Host mini
+  User jeff
+  HostName mini.local
+
+Host pve
+  User root
+  HostName pve-01.blahspam.net
+
+Host *
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/blahspam
+  ServerAliveInterval 10
+  TCPKeepAlive no
+  UseKeychain yes

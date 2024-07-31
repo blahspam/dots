@@ -78,6 +78,3 @@ path = ~/.config/git/ghec_config
 
 [includeIf "gitdir:~/Develop/jbaile223_comcast/"]
 path = ~/.config/git/ghec_config
-
-[includeIf "gitdir:~/Develop/yggdrasil/"]
-path = ~/config/git/ghe_config
