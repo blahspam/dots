@@ -1,7 +1,0 @@
-[github]
-user = jbailey223
-
-[user]
-email = jeff_bailey@comcast.com
-name = Jeff Bailey
-signingkey = ~/.ssh/blahspam.pub

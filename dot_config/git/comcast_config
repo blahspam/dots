@@ -10,4 +10,5 @@ format = ssh
 [user]
 email = Jeff_Bailey@cable.comcast.com
 name = Jeff Bailey
-signingkey = ~/.ssh/jbaile223.pub
+signingkey = ~/.ssh/comcast.pub
+cm ap

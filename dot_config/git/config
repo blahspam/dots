@@ -65,16 +65,7 @@ insteadOf = https://github.com/
 useConfigOnly = true
 
 [includeIf "gitdir:~/Develop/blahspam/"]
-path = ~/.config/git/github_config
+path = ~/.config/git/blahspam_config
 
 [includeIf "gitdir:~/Develop/comcast/"]
-path = ~/.config/git/github_config
-
-[includeIf "gitdir:~/Develop/comcast-viper-altcon/"]
-path = ~/.config/git/ghec_config
-
-[includeIf "gitdir:~/Develop/comcast-viper-eas/"]
-path = ~/.config/git/ghec_config
-
-[includeIf "gitdir:~/Develop/jbaile223_comcast/"]
-path = ~/.config/git/ghec_config
+path = ~/.config/git/comcast_config
