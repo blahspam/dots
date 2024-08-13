@@ -1,14 +1,18 @@
 [commit]
 gpgsign = true
 
+[core]
+sshCommand = ssh -i ~/.ssh/comcast -o IdentitiesOnly=yes -F /dev/null
+
 [github]
 user = jbailey223_comcast
 
 [gpg]
 format = ssh
 
+[ssh]
+
 [user]
 email = Jeff_Bailey@cable.comcast.com
 name = Jeff Bailey
 signingkey = ~/.ssh/comcast.pub
-cm ap
