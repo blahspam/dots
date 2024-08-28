@@ -1,6 +1,4 @@
-#shellcheck disable=SC2034,SC2148
-cache=${XDG_CACHE_HOME}/npm
-loglevel="warn"
 prefix=${XDG_DATA_HOME}/npm
-progress=false
-# init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
+cache=${XDG_CACHE_HOME}/npm
+init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
+tmp=${XDG_RUNTIME_DIR}/npm

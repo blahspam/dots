@@ -16,20 +16,30 @@ set -gx XDG_RUNTIME_DIR $HOME/.run
 
 set -gx ADFS_USERNAME $(whoami)
 set -gx ADFS_AWS_PROFILE comcast
+set -gx ANDROID_USER_HOME $XDG_DATA_HOME/android
+set -gx ANSIBLE_HOME $XDG_DATA_HOME/ansible
 set -gx ARTIFACTORY_TOKEN {{ onepasswordRead "op://Private/Artifactory Token/credential" }}
+set -gx AWS_SHARED_CREDENTIALS_FILE $XDG_CONFIG_HOME/aws/credentials
+set -gx BUNDLE_USER_CONFIG $XDG_CONFIG_HOME/bundle
+set -gx BUNDLE_USER_CACHE $XDG_CACHE_HOME/bundle
+set -gx BUNDLE_USER_PLUGIN $XDG_DATA_HOME/bundle
 set -gx CDPATH . ~/Develop
+set -gx CP_HOME_DIR $XDG_DATA_HOME/cocoapods
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -gx EDITOR nvim
 set -gx GHE_TOKEN {{ onepasswordRead "op://Private/GHE Token/credential" }}
 set -gx GHEC_TOKEN {{ onepasswordRead "op://Private/GHEC Token/credential"}}
 set -gx GIT_EDITOR nvim
 set -gx GITHUB_TOKEN {{ onepasswordRead "op://Private/Github/token" }}
+set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $HOME/Develop/go
 set -gx GOBIN $GOPATH/bin
+set -gx GRADLE_USER_HOME $XDG_DATA_HOME/gradle
 set -gx HOMEBREW_HOME /opt/homebrew
 set -gx HOMEBREW_BUNDLE_FILE $XDG_CONFIG_HOME/homebrew-bundle/Brewfile
 set -gx JAVA_HOME $HOMEBREW_HOME/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 set -gx LESSHISTFILE $XDG_DATA_HOME/less/history
+set -gx MINIKUBE_HOME $XDG_DATA_HOME/minikube
 set -gx NTUSER $(whoami)
 set -gx PGPASSFILE $XDG_CONFIG_HOME/psql/pgpass
 set -gx PGSERVICEFILE $XDG_CONFIG_HOME/psql/pg_service.conf
@@ -37,11 +47,12 @@ set -gx PM_USER {{ onepasswordRead "op://Private/Proxmox/username" }}
 set -gx PM_PASS {{ onepasswordRead "op://Private/Proxmox/password" }}
 set -gx PSQLRC $XDG_CONFIG_HOME/psql/psqlrc
 set -gx PSQL_HISTORY $XDG_DATA_HOME/psql/history
+set -gx RBENV_ROOT $XDG_DATA_HOME/rbenv
 set -gx RDEI_TOKEN {{ onepasswordRead "op://Private/RDEI Token/credential" }}
 set -gx SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
 set -gx TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
 set -gx TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
-
+set -gx TLDR_CACHE_DIR $XDG_CACHE_HOME/tldr
 ################################################################################
 # Path
 ################################################################################
