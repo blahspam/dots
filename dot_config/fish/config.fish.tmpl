@@ -53,6 +53,7 @@ set -gx SOPS_AGE_KEY_FILE $XDG_CONFIG_HOME/sops/age/keys.txt
 set -gx TF_CLI_CONFIG_FILE $XDG_CONFIG_HOME/terraform/config
 set -gx TF_TOKEN_artifactory_comcast_com $ARTIFACTORY_TOKEN
 set -gx TLDR_CACHE_DIR $XDG_CACHE_HOME/tldr
+
 ################################################################################
 # Path
 ################################################################################
@@ -81,4 +82,5 @@ if status --is-interactive
   kubectl completion fish | source
   mcfly init fish | source
   op completion fish | source
+  talosctl completion fish | source
 end

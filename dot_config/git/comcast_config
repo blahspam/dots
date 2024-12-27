@@ -2,10 +2,10 @@
 gpgsign = true
 
 [core]
-sshCommand = ssh -i ~/.ssh/comcast -o IdentitiesOnly=yes -o ConnectionTimeout=10 -F /dev/null
+sshCommand = ssh -i ~/.ssh/comcast -o IdentitiesOnly=yes -F /dev/null
 
 [github]
-user = jbailey223_comcast
+user = jbaile223_comcast
 
 [gpg]
 format = ssh

@@ -6,8 +6,11 @@ abbr -a ... 'cd ../../'
 abbr -a .... 'cd ../../../'
 abbr -a ..... 'cd ../../../../'
 abbr -a - 'cd -'
-abbr -a cdxc 'cd $XDG_CONFIG_HOME'
-abbr -a cdxd 'cd $XDG_DATA_HOME'
+abbr -a cdc 'cd $XDG_CONFIG_HOME'
+abbr -a cdd 'cd $XDG_DATA_HOME'
+
+abbr -a l 'eza -lao --git-repos-no-status --group --group-directories-first --no-permissions'
+abbr -a ls 'eza'
 
 # Ansible
 abbr -a agx ansible-galaxy
@@ -30,27 +33,36 @@ abbr -a fl 'fvm flutter'
 abbr -a flr 'fvm flutter run'
 
 # Git
+abbr -a g 'git'
 abbr -a gc 'git commit'
-abbr -a gca 'git commit -a'
-abbr -a gcam --set-cursor "git commit -am '%'"
+abbr -a gca --set-cursor "git commit -am '%'"
 abbr -a gco 'git checkout'
-abbr -a gf 'git fetch'
-abbr -a gpl 'git pull'
-abbr -a gps 'git push'
+abbr -a gps 'git push --set-upstream origin $(git branch --show-current)'
 abbr -a wip "git commit -nam 'chore: wip'"
 
 # Kube
 abbr -a kb kubectl
 abbr -a kbp 'kubectl get pods'
-abbr -a kbdp 'kubectl describe pod'
+abbr -a kbd 'kubectl describe pod'
 abbr -a kbs 'kubectl get svcs'
-abbr -a kbc kubectx
+abbr -a kbc 'kubectx'
 
-# Terraform / Terragrunt
-abbr -a tf terraform
-abbr -a tfa 'terraform apply'
-abbr -a tfd 'terraform destroy'
-abbr -a tg terragrunt
+# Talos
+abbr -a tl 'talosctl'
+abbr -a tla 'talosctl apply -i'
+
+# Terraform / OpenTofu
+abbr -a tf tofu
+abbr -a tfa 'tofu apply'
+abbr -a tfd 'tofu destroy'
+
+# Vault
+abbr -a vleas 'vault login -method=oidc role=altcon_ci-owners'
+abbr -a vlygg 'vault login -method=oidc role=yggdrasil_ci-owners_users'
 
 # Miscellaneous
-abbr -a src 'exec fish'
+abbr -a cat 'bat'
+abbr -a find 'fd'
+abbr -a mvn 'mvn -gs $XDG_CONFIG_HOME/maven/settings.xml'
+abbr -a tl 'talosctl'
+abbr -a vim 'nvim'
